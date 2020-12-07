@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Test Page</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel='stylesheet' type='text/css' media='screen' href='main.css'>
+    
+    <!-- Jquery JS -->
+    <script src="vendor/jquery/jquery-3.5.1.min.js" type="text/javascript"></script>
+
+
+  <!-- Bootstrap core CSS -->
+  <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+  <!-- Custom styles for this template -->
+  <link href="css/styles.css" rel="stylesheet">
+</head>
+<body>
+
+  <nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top">
+    <a class="navbar-brand" href="#">Navbar</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+  
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item active">
+          <a class="nav-link" href="/index.html">Home <span class="sr-only">(current)</span></a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">Link</a>
+        </li>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav mr-auto">
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown">
+                বই
+              </a>
+              <div class="dropdown-menu mt-0" aria-labelledby="navbarDropdown">
+                <a class="dropdown-item" href="#">বাংলা</a>
+                <a class="dropdown-item" href="#">ইংলিশ</a>
+                <div class="dropdown-divider"></div>
+                <a class="dropdown-item" href="#">অনুবাদ</a>
+              </div>
+            </li>
+          </ul>
+        </div>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav mr-auto">
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown">
+                সাহায্য
+              </a>
+              <div class="dropdown-menu mt-0" aria-labelledby="navbarDropdown">
+                <a class="dropdown-item" href="#">আমার দেশ</a>
+                <a class="dropdown-item" href="#">বিদেশ</a>
+                <div class="dropdown-divider"></div>
+                <a class="dropdown-item" href="#">অন্যান্য</a>
+              </div>
+            </li>
+          </ul>
+        </div>
+        <li class="nav-item">
+          <a class="nav-link disabled" href="#">Disabled</a>
+        </li>
+      </ul>
+      <form class="form-inline my-2 my-lg-0">
+        <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+        <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+      </form>
+    </div>
+  </nav>
+  <br>
+  
+  <!-- <div class="container-fluid">
+  <div class="row p-3">
+    <div class="col-md-4">
+      <button id="hide" type="button" class="btn btn-danger">Danger</button>
+      <p>It hides the text akjsaksa ska sa sa </p>
+    </div>
+    <div class="col-md-4">
+      <h1>I am Test</h1>
+    </div>
+    <div class="col-md-4">
+      <button id="show" type="button" class="btn btn-success">Success</button>
+      <p>It hides the text akjsaksa ska sa sa </p>
+    </div>
+  </div>
+  </div> -->
+  <!-- <div class="p-3">
+  <h2>I am Test</h1>
+    <button type="button" class="up-btn">Slide Up Paragraphs</button> 
+    <button type="button" class="down-btn">Slide Down Paragraphs</button>
+    <p>This is a paragraph.</p>
+    <p>This is another paragraph.</p>
+  </div> -->
+  <div class="row " >
+    <div class="col-md-11" > <h2 class="pl-3">Bookshops </h2></div>
+    <div id="arrowUp" class="col-md-1 " > <i class="fa fa-angle-up" style="font-size:40px"></i></div>
+    
+   
+  </div>
+    
+    <div class="row p-3 d-flex justify-content-center" id="api">
+      Loading...</div>
+      
+    
+</body>
+</html>
+
+<script>
+  var i=0;
+//API Call OnLoad
+$(function(){
+  $("#api").text("");
+    $.get("https://jsonplaceholder.typicode.com/todos", function(data, status){
+    $(data).each(function(index){
+    console.log(data[index].title);
+    if(index%2==0){
+      $("#api")
+      .append('<div id="ccard" class="p-3" ><div class="card" style="width:300px"><svg id="Layer_3" enable-background="new 0 0 64 64"  viewBox="0 0 64 64"  xmlns="http://www.w3.org/2000/svg"> <path d="m4 22h56v30h-56z" fill="#e3e3e3"/><path d="m4 52h20v6h-20z" fill="#98775a"/><path d="m4 52h17v6h-17z" fill="#cb9e78"/><path d="m40 52h20v6h-20z" fill="#98775a"/><path d="m40 52h17v6h-17z" fill="#cb9e78"/><path d="m2 58h60v4h-60z" fill="#55866b"/><path d="m2 58h57v4h-57z" fill="#71b38e"/><path d="m44 28h12v20h-12z" fill="#85b6cf"/><path d="m8 28h12v20h-12z" fill="#85b6cf"/><path d="m16 44h4v4h-4z" fill="#cb9e78"/><path d="m44 44h4v4h-4z" fill="#cb9e78"/><path d="m8 32h4v6h-4z" fill="#dc6068"/><path d="m12 32h4v6h-4z" fill="#71b38e"/><path d="m12 42h4v6h-4z" fill="#dc6068"/><path d="m48 42h4v6h-4z" fill="#dc6068"/><path d="m52 42h4v6h-4z" fill="#f8cf6a"/><path d="m52 32h4v6h-4z" fill="#dc6068"/><path d="m48 32h4v6h-4z" fill="#f8cf6a"/><path d="m8 42h4v6h-4z" fill="#71b38e"/><path d="m24 36h16v22h-16z" fill="#98775a"/><path d="m24 36h13v22h-13z" fill="#cb9e78"/><path d="m24 48h4v4h-4z" fill="#f1f1f1"/><path d="m28 40h8v4h-8z" fill="#e3e3e3"/><path d="m28 40h5v4h-5z" fill="#f1f1f1"/><path d="m4 16h56v6h-56z" fill="blue"/><path d="m4 16h53v6h-53z" fill="blue"/><path d="m8 37h12v2h-12z" fill="#e3e3e3"/><path d="m44 37h12v2h-12z" fill="#e3e3e3"/><text x="18" y="21" font-size="4" fill="white">বাংলা একাডেমি</text></svg><div class="card-body"><h4 class="card-title">'+data[index].title.substr(0,20)  +'</h4><p id="inc" class="card-text">Some example text some example text. John Doe is an architect and engineer</p><a href="" class="btn btn-primary">See Profile</a></div></div></div>')
+
+    }else{
+      $("#api")
+      .append('<div id="ccard" class="p-3" ><div class="card" style="width:300px"><svg id="Layer_3" enable-background="new 0 0 64 64"  viewBox="0 0 64 64"  xmlns="http://www.w3.org/2000/svg"> <path d="m4 22h56v30h-56z" fill="#e3e3e3"/><path d="m4 52h20v6h-20z" fill="#98775a"/><path d="m4 52h17v6h-17z" fill="#cb9e78"/><path d="m40 52h20v6h-20z" fill="#98775a"/><path d="m40 52h17v6h-17z" fill="#cb9e78"/><path d="m2 58h60v4h-60z" fill="#55866b"/><path d="m2 58h57v4h-57z" fill="#71b38e"/><path d="m44 28h12v20h-12z" fill="#85b6cf"/><path d="m8 28h12v20h-12z" fill="#85b6cf"/><path d="m16 44h4v4h-4z" fill="#cb9e78"/><path d="m44 44h4v4h-4z" fill="#cb9e78"/><path d="m8 32h4v6h-4z" fill="#dc6068"/><path d="m12 32h4v6h-4z" fill="#71b38e"/><path d="m12 42h4v6h-4z" fill="#dc6068"/><path d="m48 42h4v6h-4z" fill="#dc6068"/><path d="m52 42h4v6h-4z" fill="#f8cf6a"/><path d="m52 32h4v6h-4z" fill="#dc6068"/><path d="m48 32h4v6h-4z" fill="#f8cf6a"/><path d="m8 42h4v6h-4z" fill="#71b38e"/><path d="m24 36h16v22h-16z" fill="#98775a"/><path d="m24 36h13v22h-13z" fill="#cb9e78"/><path d="m24 48h4v4h-4z" fill="#f1f1f1"/><path d="m28 40h8v4h-8z" fill="#e3e3e3"/><path d="m28 40h5v4h-5z" fill="#f1f1f1"/><path d="m4 16h56v6h-56z" fill="#55866b"/><path d="m4 16h53v6h-53z" fill="#71b38e"/><path d="m32 22 8-2v-10l-8 2-8-2v10z" fill="#bdc2c7"/><path d="m8 37h12v2h-12z" fill="#e3e3e3"/><path d="m44 37h12v2h-12z" fill="#e3e3e3"/><path d="m31 21.75c.219.055 1 .25 1 .25l1-.25v-10l-1 .25s-.781-.195-1-.25z" fill="#8e9295"/><text x="18" y="21" font-size="4" fill="white">কাকলী প্রকাশনী</text></svg><div class="card-body"><h4 class="card-title">'+data[index].title.substr(0,20)  +'</h4><p id="inc" class="card-text">Some example text some example text. John Doe is an architect and engineer</p><a href="#" class="btn btn-primary">See Profile</a></div></div></div>')
+
+    }
+          })
+    });
+})
+
+$(document).ready(function(){
+  $.fn.alertshow = function(){
+    alert("Hidden");
+  }
+
+//API Call OnClick
+  // $("#api").click(function(){
+  //     $("#api").text("");
+  //   $.get("https://jsonplaceholder.typicode.com/todos", function(data, status){
+  //   $(data).each(function(index){
+  //   console.log(data[index].title);
+  //     $("#api")
+  //     .append('<div id="ccard" class="p-3" ><div class="card" style="width:300px"><img class="card-img-top" src="img/img_avatar1.png" alt="Card image" style="width:100%"><div class="card-body"><h4 class="card-title">'+data[index].title.substr(0,20) +'</h4><p class="card-text">Some example text some example text. John Doe is an architect and engineer</p><a href="#" class="btn btn-primary">See Profile</a></div></div></div>')
+  //   })
+  //   });
+  // }); 
+
+
+
+  $("#hide").click(function(){
+    $("h1").hide();
+    $("h2").fadeOut();
+    $("#hide").hide();
+    $.fn.alertshow();
+  });
+
+  $("#show").click(function(){
+    $("h1").show();
+    $("#hide").show();
+  });
+
+
+  $(".up-btn").click(function(){
+        $("p").slideUp();
+    });
+    
+    // Slide down hidden paragraphs
+    $(".down-btn").click(function(){
+        $("p").slideToggle();
+    });
+
+    $("#arrowUp").click(function(){
+        //$("p").slideToggle();
+        //$(".container-fluid").slideToggle();
+        $(".card").slideToggle();
+        if($("i").hasClass("fa fa-angle-down")){
+          $("#arrowUp").html("<i class='fa fa-angle-up' style='font-size:40px'></i>")
+        }else{
+          $("#arrowUp").html("<i class='fa fa-angle-down' style='font-size:40px'></i>")
+        }
+    });
+    
+
+
+});
+</script>
