@@ -8,8 +8,12 @@
 }
 
 .row {
-  border: ridge 1px blue;
+  border: none;
 }
+#api{
+  border:none;
+}
+
 
 br {
   margin-top: 20px;
