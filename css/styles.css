@@ -7,11 +7,27 @@
   margin-top: 25px;
 }
 
+.scrolling-wrapper{
+	overflow-x: auto;
+}
 .row {
   border: none;
 }
+
+.card:hover{
+  width:400px;
+  background: rgb(213, 241, 241);
+  cursor: pointer;
+}
 #api{
   border:none;
+}
+
+#arrowRight{
+  cursor: pointer;
+}
+#arrowLeft{
+  cursor: pointer;
 }
 
 
@@ -26,7 +42,7 @@ hr {
 }
 
 .d-flex {
-  border: ridge 1px blue;
+  border: ridge 1px rgb(247, 247, 250);
 }
 
 .navbar-nav li:hover .dropdown-menu {

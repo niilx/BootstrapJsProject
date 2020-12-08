@@ -100,15 +100,21 @@
     <p>This is a paragraph.</p>
     <p>This is another paragraph.</p>
   </div> -->
+  
+  
+  
   <div class="row" >
     <div class="col-md-11 " > <h2 class="pl-4">Bookshops </h2></div>
     <div id="arrowUp" class="col-md-1 pl-5 " > <i class="fa fa-angle-up" style="font-size:40px"></i></div>
-    
-   
   </div>
-    
-    <div class="row p-3 d-flex justify-content-center" id="api">
+    <div class="d-flex flex-row-reverse">
+      <i class="fa fa-angle-right pr-4" id="arrowRight" style="font-size:40px"></i>
+      <i class="fa fa-angle-left pr-3" id="arrowLeft" style="font-size:40px"></i>
+    </div>
+   
+    <div class="scrolling-wrapper row flex-row flex-nowrap mt-4 pb-4" id="api">
       Loading...</div>
+    </div>
       
     
 </body>
@@ -116,6 +122,7 @@
 
 <script>
   var i=0;
+  var clicked = false, base = 0;
   var shopColors = ["#FF00FF","#00FF00","#E41B17","#800080","#ADD8E6","#0000A0","#00FFFF","#800000","#4863A0","#FF00FF","#00FF00","#FFFF00","#800080","#ADD8E6","#0000A0","#00FFFF","#800000","#4863A0",];
   var bookshops = ["বাংলা একাডেমি", "কাকলি প্রকাশনী", "আধুনিক প্রকাশনী", "সমকালীন প্রকাশনী", "ওহী প্রকাশনী", "সেবা প্রকাশনী","বাংলা একাডেমি", "কাকলি প্রকাশনী", "আধুনিক প্রকাশনী", "সমকালীন প্রকাশনী", "ওহী প্রকাশনী", "সেবা প্রকাশনী"]
 //API Call OnLoad
@@ -126,11 +133,11 @@ $(function(){
     console.log(data[index].title);
     if(index%2==0){
       $("#api")
-      .append('<div id="ccard" class="p-3" ><div class="card" style="width:300px"><svg id="Layer_3" enable-background="new 0 0 64 64"  viewBox="0 0 64 64"  xmlns="http://www.w3.org/2000/svg"> <path d="m4 22h56v30h-56z" fill="#e3e3e3"/><path d="m4 52h20v6h-20z" fill="#98775a"/><path d="m4 52h17v6h-17z" fill="#cb9e78"/><path d="m40 52h20v6h-20z" fill="#98775a"/><path d="m40 52h17v6h-17z" fill="#cb9e78"/><path d="m2 58h60v4h-60z" fill="#55866b"/><path d="m2 58h57v4h-57z" fill="#71b38e"/><path d="m44 28h12v20h-12z" fill="#85b6cf"/><path d="m8 28h12v20h-12z" fill="#85b6cf"/><path d="m16 44h4v4h-4z" fill="#cb9e78"/><path d="m44 44h4v4h-4z" fill="#cb9e78"/><path d="m8 32h4v6h-4z" fill="#dc6068"/><path d="m12 32h4v6h-4z" fill="#71b38e"/><path d="m12 42h4v6h-4z" fill="#dc6068"/><path d="m48 42h4v6h-4z" fill="#dc6068"/><path d="m52 42h4v6h-4z" fill="#f8cf6a"/><path d="m52 32h4v6h-4z" fill="#dc6068"/><path d="m48 32h4v6h-4z" fill="#f8cf6a"/><path d="m8 42h4v6h-4z" fill="#71b38e"/><path d="m24 36h16v22h-16z" fill="#98775a"/><path d="m24 36h13v22h-13z" fill="#cb9e78"/><path d="m24 48h4v4h-4z" fill="#f1f1f1"/><path d="m28 40h8v4h-8z" fill="#e3e3e3"/><path d="m28 40h5v4h-5z" fill="#f1f1f1"/><path d="m4 16h56v6h-56z" fill="'+shopColors[index]+'"/><path d="m4 16h53v6h-53z" fill="'+shopColors[index]+'"/><path d="m8 37h12v2h-12z" fill="#e3e3e3"/><path d="m44 37h12v2h-12z" fill="#e3e3e3"/><text x="18" y="21" font-size="4" fill="white">'+bookshops[index]+'</text></svg><div class="card-body"><h4 class="card-title">'+data[index].title.substr(0,20)  +'</h4><p id="inc" class="card-text"></p><a href="" class="btn btn-primary d-flex justify-content-center">Visit Shop</a></div></div></div>')
+      .append('<div id="ccard" class="pl-3 pr-3" ><div class="card" style="width:300px"><svg id="Layer_3" enable-background="new 0 0 64 64"  viewBox="0 0 64 64"  xmlns="http://www.w3.org/2000/svg"> <path d="m4 22h56v30h-56z" fill="#e3e3e3"/><path d="m4 52h20v6h-20z" fill="#98775a"/><path d="m4 52h17v6h-17z" fill="#cb9e78"/><path d="m40 52h20v6h-20z" fill="#98775a"/><path d="m40 52h17v6h-17z" fill="#cb9e78"/><path d="m2 58h60v4h-60z" fill="#55866b"/><path d="m2 58h57v4h-57z" fill="#71b38e"/><path d="m44 28h12v20h-12z" fill="#85b6cf"/><path d="m8 28h12v20h-12z" fill="#85b6cf"/><path d="m16 44h4v4h-4z" fill="#cb9e78"/><path d="m44 44h4v4h-4z" fill="#cb9e78"/><path d="m8 32h4v6h-4z" fill="#dc6068"/><path d="m12 32h4v6h-4z" fill="#71b38e"/><path d="m12 42h4v6h-4z" fill="#dc6068"/><path d="m48 42h4v6h-4z" fill="#dc6068"/><path d="m52 42h4v6h-4z" fill="#f8cf6a"/><path d="m52 32h4v6h-4z" fill="#dc6068"/><path d="m48 32h4v6h-4z" fill="#f8cf6a"/><path d="m8 42h4v6h-4z" fill="#71b38e"/><path d="m24 36h16v22h-16z" fill="#98775a"/><path d="m24 36h13v22h-13z" fill="#cb9e78"/><path d="m24 48h4v4h-4z" fill="#f1f1f1"/><path d="m28 40h8v4h-8z" fill="#e3e3e3"/><path d="m28 40h5v4h-5z" fill="#f1f1f1"/><path d="m4 16h56v6h-56z" fill="'+shopColors[index]+'"/><path d="m4 16h53v6h-53z" fill="'+shopColors[index]+'"/><path d="m8 37h12v2h-12z" fill="#e3e3e3"/><path d="m44 37h12v2h-12z" fill="#e3e3e3"/><text x="18" y="21" font-size="4" fill="white">'+bookshops[index]+'</text></svg><div class="card-body"><h4 class="card-title d-flex justify-content-center">'+data[index].title.substr(0,20)  +'</h4><p id="inc" class="card-text"></p><a href="" class="btn btn-primary d-flex justify-content-center">Visit Shop</a></div></div></div>')
 
     }else{
       $("#api")
-      .append('<div id="ccard" class="p-3" ><div class="card" style="width:300px"><svg id="Layer_3" enable-background="new 0 0 64 64"  viewBox="0 0 64 64"  xmlns="http://www.w3.org/2000/svg"> <path d="m4 22h56v30h-56z" fill="#e3e3e3"/><path d="m4 52h20v6h-20z" fill="#98775a"/><path d="m4 52h17v6h-17z" fill="#cb9e78"/><path d="m40 52h20v6h-20z" fill="#98775a"/><path d="m40 52h17v6h-17z" fill="#cb9e78"/><path d="m2 58h60v4h-60z" fill="#55866b"/><path d="m2 58h57v4h-57z" fill="#71b38e"/><path d="m44 28h12v20h-12z" fill="#85b6cf"/><path d="m8 28h12v20h-12z" fill="#85b6cf"/><path d="m16 44h4v4h-4z" fill="#cb9e78"/><path d="m44 44h4v4h-4z" fill="#cb9e78"/><path d="m8 32h4v6h-4z" fill="#dc6068"/><path d="m12 32h4v6h-4z" fill="#71b38e"/><path d="m12 42h4v6h-4z" fill="#dc6068"/><path d="m48 42h4v6h-4z" fill="#dc6068"/><path d="m52 42h4v6h-4z" fill="#f8cf6a"/><path d="m52 32h4v6h-4z" fill="#dc6068"/><path d="m48 32h4v6h-4z" fill="#f8cf6a"/><path d="m8 42h4v6h-4z" fill="#71b38e"/><path d="m24 36h16v22h-16z" fill="#98775a"/><path d="m24 36h13v22h-13z" fill="#cb9e78"/><path d="m24 48h4v4h-4z" fill="#f1f1f1"/><path d="m28 40h8v4h-8z" fill="#e3e3e3"/><path d="m28 40h5v4h-5z" fill="#f1f1f1"/><path d="m4 16h56v6h-56z" fill="'+shopColors[index]+'"/><path d="m4 16h53v6h-53z" fill="'+shopColors[index]+'"/><path d="m32 22 8-2v-10l-8 2-8-2v10z" fill="#bdc2c7"/><path d="m8 37h12v2h-12z" fill="#e3e3e3"/><path d="m44 37h12v2h-12z" fill="#e3e3e3"/><path d="m31 21.75c.219.055 1 .25 1 .25l1-.25v-10l-1 .25s-.781-.195-1-.25z" fill="#8e9295"/><text x="18" y="21" font-size="4" fill="white">'+bookshops[index]+'</text></svg><div class="card-body"><h4 class="card-title">'+data[index].title.substr(0,20)  +'</h4><p id="inc" class="card-text"></p><a href="#" class="btn btn-primary d-flex justify-content-center">Visit Shop</a></div></div></div>')
+      .append('<div id="ccard" class="pl-3 pr-3" ><div class="card" style="width:300px"><svg id="Layer_3" enable-background="new 0 0 64 64"  viewBox="0 0 64 64"  xmlns="http://www.w3.org/2000/svg"> <path d="m4 22h56v30h-56z" fill="#e3e3e3"/><path d="m4 52h20v6h-20z" fill="#98775a"/><path d="m4 52h17v6h-17z" fill="#cb9e78"/><path d="m40 52h20v6h-20z" fill="#98775a"/><path d="m40 52h17v6h-17z" fill="#cb9e78"/><path d="m2 58h60v4h-60z" fill="#55866b"/><path d="m2 58h57v4h-57z" fill="#71b38e"/><path d="m44 28h12v20h-12z" fill="#85b6cf"/><path d="m8 28h12v20h-12z" fill="#85b6cf"/><path d="m16 44h4v4h-4z" fill="#cb9e78"/><path d="m44 44h4v4h-4z" fill="#cb9e78"/><path d="m8 32h4v6h-4z" fill="#dc6068"/><path d="m12 32h4v6h-4z" fill="#71b38e"/><path d="m12 42h4v6h-4z" fill="#dc6068"/><path d="m48 42h4v6h-4z" fill="#dc6068"/><path d="m52 42h4v6h-4z" fill="#f8cf6a"/><path d="m52 32h4v6h-4z" fill="#dc6068"/><path d="m48 32h4v6h-4z" fill="#f8cf6a"/><path d="m8 42h4v6h-4z" fill="#71b38e"/><path d="m24 36h16v22h-16z" fill="#98775a"/><path d="m24 36h13v22h-13z" fill="#cb9e78"/><path d="m24 48h4v4h-4z" fill="#f1f1f1"/><path d="m28 40h8v4h-8z" fill="#e3e3e3"/><path d="m28 40h5v4h-5z" fill="#f1f1f1"/><path d="m4 16h56v6h-56z" fill="'+shopColors[index]+'"/><path d="m4 16h53v6h-53z" fill="'+shopColors[index]+'"/><path d="m32 22 8-2v-10l-8 2-8-2v10z" fill="#bdc2c7"/><path d="m8 37h12v2h-12z" fill="#e3e3e3"/><path d="m44 37h12v2h-12z" fill="#e3e3e3"/><path d="m31 21.75c.219.055 1 .25 1 .25l1-.25v-10l-1 .25s-.781-.195-1-.25z" fill="#8e9295"/><text x="18" y="21" font-size="4" fill="white">'+bookshops[index]+'</text></svg><div class="card-body"><h4 class="card-title d-flex justify-content-center">'+data[index].title.substr(0,20)  +'</h4><p id="inc" class="card-text"></p><a href="#" class="btn btn-primary d-flex justify-content-center">Visit Shop</a></div></div></div>')
 
     }
           })
@@ -155,6 +162,32 @@ $(document).ready(function(){
   // }); 
 
 
+
+// $('#api').on({
+//     mousemove: function(e) {
+//         clicked && function(xAxis) {
+//             var _this = $(this);
+//             if(base > xAxis) {
+//               console.log(base);
+//                 base = xAxis;
+//                 _this.css('margin-left', '-=10px');
+//             }
+//             if(base < xAxis) {
+//               console.log(base);
+//                 base = xAxis;
+//                 _this.css('margin-left', '+=10px');
+//             }
+//         }.call($(this), e.pageX);
+//     },
+//     mousedown: function(e) {
+//         clicked = true;
+//         base = e.pageX;
+//     },
+//     mouseup: function(e) {
+//         clicked = false;
+//         base = 0;
+//     }
+// });
 
   $("#hide").click(function(){
     $("h1").hide();
@@ -181,12 +214,30 @@ $(document).ready(function(){
     $("#arrowUp").click(function(){
         //$("p").slideToggle();
         //$(".container-fluid").slideToggle();
-        $(".p-3").slideToggle();
+        $(".pl-3").slideToggle();
         if($("i").hasClass("fa fa-angle-down")){
           $("#arrowUp").html("<i class='fa fa-angle-up' style='font-size:40px'></i>")
         }else{
           $("#arrowUp").html("<i class='fa fa-angle-down' style='font-size:40px'></i>")
         }
+    });
+    $("#arrowLeft").click(function(){
+      event.preventDefault();
+      $("#api").animate(
+        {
+          scrollLeft: "-=1300px"
+        },
+        "fast"
+      );
+    });
+    $("#arrowRight").click(function(){
+      event.preventDefault();
+      $("#api").animate(
+        {
+          scrollLeft: "+=1300px"
+        },
+        "slow"
+      );
     });
     
 
